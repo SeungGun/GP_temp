@@ -13,7 +13,7 @@ import java.io.IOException;
 @RestController
 public class TempController {
 
-    @GetMapping(value="/hello")
+    @GetMapping(value = "/hello")
     public String hello() throws IOException {
         System.out.println("Python call");
 
@@ -23,7 +23,8 @@ public class TempController {
         command[2] = "20";
         command[3] = "40";
         CommandLine commandLine = CommandLine.parse(command[0]);
-        for (String s : command) commandLine.addArgument(s);
+        for (int i = 1, n = command.length; i < n; ++i)
+            commandLine.addArgument(command[i]);
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PumpStreamHandler pumpStreamHandler = new PumpStreamHandler(outputStream);
