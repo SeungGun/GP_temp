@@ -1,5 +1,5 @@
 import sys
-# import numpy as np
+import numpy as np
 
 def sum(v1, v2):
     result = int(v1) + int(v2)
